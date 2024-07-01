@@ -2,7 +2,6 @@ const express = require("express");
 const fs = require("fs");
 
 const app = express();
-// Middleware to parse JSON bodies
 app.use(express.json());
 
 const tours = JSON.parse(
@@ -20,7 +19,7 @@ app.get("/api/v1/tours", (req, res) => {
 });
 
 app.get("/api/v1/tours/:id", (req, res) => {
-  const id = req.params.id * 1; // Convert id to a number
+  const id = req.params.id * 1;
   const tour = tours.find(el => el.id === id);
 
   if (!tour) {
@@ -69,7 +68,7 @@ app.post("/api/v1/tours", (req, res) => {
 });
 
 app.put("/api/v1/tours/:id", (req, res) => {
-  const id = req.params.id * 1; // Convert id to a number
+  const id = req.params.id * 1; 
   const tour = tours.find(el => el.id === id);
 
   if (!tour) {
@@ -103,7 +102,7 @@ app.put("/api/v1/tours/:id", (req, res) => {
 });
 
 app.delete("/api/v1/tours/:id", (req, res) => {
-  const id = req.params.id * 1; // Convert id to a number
+  const id = req.params.id * 1; 
   const tourIndex = tours.findIndex(el => el.id === id);
 
   if (tourIndex === -1) {
